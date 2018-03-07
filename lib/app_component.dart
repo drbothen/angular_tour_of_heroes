@@ -2,11 +2,16 @@ import 'package:angular/angular.dart';
 
 @Component(
   selector: 'my-app',
-  template: '<h1>{{title}}</h1><h2>{{hero}} details!</h2>',
+  template: '''
+  <h1>{{title}}</h1>
+  <h2>{{hero.name}} details!</h2>
+  <div><label>id: </label>{{hero.id}}</div>
+  <div><label>name: </label>{{hero.name}}</div>
+  ''',
 )
 class AppComponent {
   final title = 'Tour of Heroes';
-  var hero = 'Windstorm';
+  Hero hero = new Hero(1, 'Windstorm');
 }
 
 // Hero: This represent a hero in our app
