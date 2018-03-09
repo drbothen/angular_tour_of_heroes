@@ -6,9 +6,14 @@ import 'src/mock_heroes.dart';
 @Component(
   selector: 'my-app',
   templateUrl: 'app_component.html',
+  styleUrls: const ['app_component.css'],
   directives: const [CORE_DIRECTIVES, formDirectives],
 )
 class AppComponent {
   final title = 'Tour of Heroes';
-  List<Hero> heroes = mockHeroes;
+  List<Hero> heroes = mockHeroes;  // List of Hero
+
+  Hero selectedHero;  // Selected Hero
+  void onSelect(Hero hero) => selectedHero = hero; // Click event
+
 }
