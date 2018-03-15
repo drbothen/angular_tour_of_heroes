@@ -3,13 +3,17 @@ import 'package:angular_router/angular_router.dart';
 
 import 'src/hero_service.dart';
 import 'src/heroes_component.dart';
+import 'src/dashboard_component.dart';
 
 
 @Component(
   selector: 'my-app',
   template: '''
     <h1>{{title}}</h1>
-    <a [routerLink]="['Heroes']">Heroes</a>
+    <nav>
+      <a [routerLink]="['Dashboard']">Dashboard</a>
+      <a [routerLink]="['Heroes']">Heroes</a>
+    </nav>
    <router-outlet></router-outlet>
   ''',
   directives: const [ROUTER_DIRECTIVES],
@@ -22,6 +26,15 @@ import 'src/heroes_component.dart';
           path: '/heroes', //URL Match
           name: 'Heroes',  // Route Name
           component: HeroesComponent  // Activated Component
+      ),
+      const Route(
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: DashboardComponent,
+      ),
+      const Redirect(
+          path: '/',
+          redirectTo: const ['Dashboard']
       )
     ]
 )
