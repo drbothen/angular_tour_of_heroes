@@ -8,7 +8,6 @@ import 'hero_service.dart';
   templateUrl: 'heroes_component.html',
   styleUrls: const ['heroes_component.css'],
   directives: const [CORE_DIRECTIVES, HeroDetailComponent],
-  providers: const [HeroService],
 )
 class HeroesComponent implements OnInit {
   final title = 'Tour of Heroes';
