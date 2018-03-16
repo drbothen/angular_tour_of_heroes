@@ -1,7 +1,25 @@
 import 'package:angular/angular.dart';
+import 'package:angular_router/angular_router.dart';
+
+import 'dart:async';
+import 'hero.dart';
+import 'hero_service.dart';
 
 @Component(
   selector: 'my-dashboard',
-  template: '<h3>My Dashboard</h3>',
+  templateUrl: 'dashboard_component.html',
+  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES]
 )
-class DashboardComponent {}
+class DashboardComponent implements OnInit {
+  List<Hero> heroes;
+
+  final HeroService _heroService;
+
+  DashboardComponent(
+        this._heroService
+      );
+
+  Future<Null> ngOnInit() async {
+    heroes = (await _heroService.getHeroes()).skip(1).take(4).toList();
+  }
+}

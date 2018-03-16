@@ -4,6 +4,7 @@ import 'package:angular_router/angular_router.dart';
 import 'src/hero_service.dart';
 import 'src/heroes_component.dart';
 import 'src/dashboard_component.dart';
+import 'src/hero_detail_component.dart';
 
 
 @Component(
@@ -32,10 +33,15 @@ import 'src/dashboard_component.dart';
         name: 'Dashboard',
         component: DashboardComponent,
       ),
+      const Route(
+        path: '/detail/:id',
+        name: 'HeroDetail',
+        component: HeroDetailComponent,
+      ),
       const Redirect(
           path: '/',
           redirectTo: const ['Dashboard']
-      )
+      ),
     ]
 )
 
